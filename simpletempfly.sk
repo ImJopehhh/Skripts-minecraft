@@ -1,1 +1,32 @@
 # Start
+command /fly [<offlineplayers>] [<text>]:
+    cooldown: 2 seconds
+    cooldown message: &cCalm down, Your command on cooldown!
+    trigger:
+        if arg 1 is set:
+            if executor has permission "tempfly.manage":
+                if arg 2 is set:
+                    execute console command "lp user %arg 1% permission addtemp tempfly.use %arg 2%m true"
+                    send "&aSucsessfully add %arg 1% Flight for %arg 2%" to executor
+                    send "&aYou have %arg 2% flight mode times" to arg 1
+                    stop
+                else:
+                    send "&c This argument must be in time form! (example: 50m for 50 minutes)" to executor
+                    stop
+        else:
+            if executor is not console:
+                if player has permission "tempfly.use":
+                    if player's flight mode is false:
+                        set player's flight mode to true
+                        send "&aYour flight mode is activated!" to executor
+                        stop
+                    else if player's flight mode is true:
+                        set player's flight mode to false
+                        send "&aYour flight mode is deactivated!" to executor
+                else:
+                    send "&cYou don't have permission!" to executor
+                    stop
+            else:
+                send "&cOnly player can run this command!" to executor
+
+
