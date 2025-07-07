@@ -1,0 +1,21 @@
+# Vote reward + Top monthly reward !!
+
+# Giving Monthly (Access Claim), Daily (Give Reward), and Daily Reward setting
+command /adminvotereward [<offlineplayers>] [<text>] [<text>]:
+   permission: votereward.admin
+   trigger:
+      if arg 1 is set:
+         if arg 2 is "daily":
+            if arg 3 is "minecraft-mp": # This is used if your server uses double vote website, different rewards can be put here! Read Readme.md for more information!
+               # set your reward here using "execute console commad" for give items, other plugin command, etc.
+               send "&aSuccessfully give reward to %arg 1%!" to executor
+               send "&aThank you for your support on Minecraft-mp!" to arg 1
+            if arg 3 is "minecraftpocket-servers":
+               # set your reward here using "execute console commad" for give items, other plugin command, etc.
+               send "&aSuccessfully give reward to %arg 1%!" to executor
+               send "&aThank you for your support on Minecraftpocket-servers!" to arg 1
+            else:
+               send "&cPlease use &aminecraft-mp &cor &aminecraftpocket-servers &cfor a valid website reward!" to executor
+         if arg 2 is "monthly":
+            if arg 3 is "1-3":
+               #
