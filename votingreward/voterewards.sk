@@ -17,5 +17,30 @@ command /adminvotereward [<offlineplayers>] [<text>] [<text>]:
             else:
                send "&cPlease use &aminecraft-mp &cor &aminecraftpocket-servers &cfor a valid website reward!" to executor
          if arg 2 is "monthly":
-            if arg 3 is "1-3":
-               #
+            if arg 3 is "1":
+               # Set your reward here using "execute console command"
+               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.1 7d"
+               send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
+               send "&a%arg 1% have 7 days to claim their rewards!" executor
+            if arg 3 is "2":
+               # Set your reward here using "execute console command"
+               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.2 7d"
+               send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
+               send "&a%arg 1% have 7 days to claim their rewards!" executor
+            if arg 3 is "3":
+               # Set your reward here using "execute console command"
+               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.3 7d"
+               send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
+               send "&a%arg 1% have 7 days to claim their rewards!" executor
+            if arg 3 is "4-6":
+               # Set your reward here using "execute console command"
+               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.4-6 7d"
+               send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
+               send "&a%arg 1% have 7 days to claim their rewards!" executor
+            if arg 3 is "7-10":
+               # Set your reward here using "execute console command"
+               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.7-10 7d"
+               send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
+               send "&a%arg 1% have 7 days to claim their rewards!" executor
+         else if arg 2 is not "monthly" and "daily:
+            send "&cPlease use &adaily &cor &amonthly &crewards" to executor
