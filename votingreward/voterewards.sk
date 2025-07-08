@@ -17,30 +17,63 @@ command /adminvotereward [<offlineplayers>] [<text>] [<text>]:
             else:
                send "&cPlease use &aminecraft-mp &cor &aminecraftpocket-servers &cfor a valid website reward!" to executor
          if arg 2 is "monthly":
-            if arg 3 is "1":
-               # Set your reward here using "execute console command"
-               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.1 7d"
+            if arg 3 is "1": # Top 1
+               execute console command "luckperms user %arg 1% permission settemp votereward.monthly.claim.1 7d"
                send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
                send "&a%arg 1% have 7 days to claim their rewards!" executor
-            if arg 3 is "2":
-               # Set your reward here using "execute console command"
-               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.2 7d"
+            if arg 3 is "2": # Top 2
+               execute console command "luckperms user %arg 1% permission settemp votereward.monthly.claim.2 7d"
                send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
                send "&a%arg 1% have 7 days to claim their rewards!" executor
-            if arg 3 is "3":
-               # Set your reward here using "execute console command"
-               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.3 7d"
+            if arg 3 is "3": # Top 3
+               execute console command "luckperms user %arg 1% permission settemp votereward.monthly.claim.3 7d"
                send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
                send "&a%arg 1% have 7 days to claim their rewards!" executor
-            if arg 3 is "4-6":
-               # Set your reward here using "execute console command"
-               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.4-6 7d"
+            if arg 3 is "4-6": # Top 4-6
+               execute console command "luckperms user %arg 1% permission settemp votereward.monthly.claim.4-6 7d"
                send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
                send "&a%arg 1% have 7 days to claim their rewards!" executor
-            if arg 3 is "7-10":
-               # Set your reward here using "execute console command"
-               execute console command "luckperms user %arg 1% permission addtemp votereward.monthly.claim.7-10 7d"
+            if arg 3 is "7-10": # Top 7-10
+               execute console command "luckperms user %arg 1% permission settemp votereward.monthly.claim.7-10 7d"
                send "&aSuccessfully give Access %arg 1% to claim Monthly reward!" to executor
                send "&a%arg 1% have 7 days to claim their rewards!" executor
          else if arg 2 is not "monthly" and "daily:
             send "&cPlease use &adaily &cor &amonthly &crewards" to executor
+      else:
+         send "&cPlease set the player name!" to executor
+
+# Claim Top Voters Reward!
+command /topvoterclaim:
+   cooldown: 5s
+   cooldown message: &cYour command is in cooldown!
+   trigger:
+      if executor is not console:
+         if executor has permission "votereward.monthly.claim.1":
+            # Set the reward here, use "execute console command" to costumize reward! read Readme.md for more information!
+            send "&aSuccessfully claim your top voter reward!" to executor
+            send "&6[&b!&6] &aPlayer %player% it's success to claim thier reward! &cremoving access command.." to console
+            execute console command "lp user %player% permission unsettemp votereward.monthly.claim.1 7d"
+         if executor has permission "votereward.monthly.claim.2":
+            # Set the reward here, use "execute console command" to costumize reward! read Readme.md for more information!
+            send "&aSuccessfully claim your top voter reward!" to executor
+            send "&6[&b!&6] &aPlayer %player% it's success to claim thier reward! &cremoving access command.." to console
+            execute console command "lp user %player% permission unsettemp votereward.monthly.claim.2 7d"
+         if executor has permission "votereward.monthly.claim.3":
+            # Set the reward here, use "execute console command" to costumize reward! read Readme.md for more information!
+            send "&aSuccessfully claim your top voter reward!" to executor
+            send "&6[&b!&6] &aPlayer %player% it's success to claim thier reward! &cremoving access command.." to console
+            execute console command "lp user %player% permission unsettemp votereward.monthly.claim.3 7d"
+         if executor has permission "votereward.monthly.claim.4-6":
+            # Set the reward here, use "execute console command" to costumize reward! read Readme.md for more information!
+            send "&aSuccessfully claim your top voter reward!" to executor
+            send "&6[&b!&6] &aPlayer %player% it's success to claim thier reward! &cremoving access command.." to console
+            execute console command "lp user %player% permission unsettemp votereward.monthly.claim.4-6 7d"
+         if executor has permission "votereward.monthly.claim.7-10":
+            # Set the reward here, use "execute console command" to costumize reward! read Readme.md for more information!
+            send "&aSuccessfully claim your top voter reward!" to executor
+            send "&6[&b!&6] &aPlayer %player% it's success to claim thier reward! &cremoving access command.." to console
+            execute console command "lp user %player% permission unsettemp votereward.monthly.claim.7-10 7d"
+         else:
+            send "&cSorry, You are not the top voter this month! If this is a mistake please contact Staff member!" to executor
+      else:
+         send "&cOnly player in-game can execute this command!" to executor
